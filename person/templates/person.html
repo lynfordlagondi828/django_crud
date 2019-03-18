@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="page-header">
+
+    <div class="align-left">
+        <a class="btn btn-success" href="{% url 'add_person' %}"><i class="glyphicon glyphicon-plus"> Add</i></a>
+    </div>
+
+
+
+ <ul>
+
+<h3>List of Person</h3>
+     {% for person in person %}
+      <a href="{% url 'update_person' person.id %}">
+          <li>{{person.lastname}}</li>
+      </a>
+
+      <a href="{% url 'delete_person' person.id %}">
+           <span class="glyphicon glyphicon-remove"></span>
+      </a>
+
+       <a href="{% url 'update_person' person.id %}">
+          <span class="glyphicon glyphicon-edit"></span>
+      </a>
+     {% endfor %}
+ </ul>
+
+</div>
+</body>
+</html>
